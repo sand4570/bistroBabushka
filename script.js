@@ -42,7 +42,7 @@ function vis(json) {
         klon.querySelector("img").src = medieurl + ret.billede[0];
         klon.querySelector("h2").textContent = ret.navn;
         klon.querySelector("#info").textContent = ret.kortbeskrivelse;
-        klon.querySelector("#pris").innerHTML = `${ret.pris} kr`;
+        klon.querySelector("#pris").innerHTML = `${ret.pris} ,-`;
 
         container.appendChild(klon);
 
