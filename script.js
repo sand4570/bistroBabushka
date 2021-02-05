@@ -45,8 +45,28 @@ function vis(json) {
         klon.querySelector("#pris").innerHTML = `${ret.pris} ,-`;
 
         container.appendChild(klon);
-
     })
+    //kør funktionen start
+    start()
+}
+
+function start() {
+    console.log("start");
+
+    let article1 = document.querySelectorAll("article");
+    article1.forEach(article => {
+        article.addEventListener("mouseover", mouseover);
+        article.addEventListener("mouseout", mouseout);
+    })
+
+}
+
+function mouseover() {
+    this.classList.add("hover");
+}
+
+function mouseout() {
+    this.classList.remove("hover");
 }
 
 hentData()
