@@ -18,12 +18,18 @@ p {
     font-weight: normal;
 }
 
+
+
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #197C67;
+    position: -webkit-sticky;
+    /* Safari */
+    position: sticky;
+    top: 0;
 
 }
 
@@ -40,7 +46,7 @@ li a {
 }
 
 li a:hover {
-  background-color: #126453;
+    background-color: #126453;
 }
 
 #pris {
