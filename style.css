@@ -20,6 +20,10 @@ p {
     color: darkred;
 }
 
+#splash {
+    border-radius: 0%;
+}
+
 section {
     max-width: 100%;
     margin-left: 10%;
