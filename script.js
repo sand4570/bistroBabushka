@@ -98,11 +98,11 @@ function mouseout() {
 
 function toggleMenu() {
     let navBar = document.querySelector("nav");
-    if (navBar.style.display === "block") {
-        navBar.style.display = "none";
+    if (navBar.style.display === "") {
+        navBar.style.display = "block";
 
     } else {
-        navBar.style.display = "block";
+        navBar.style.display = "";
     }
 }
 
