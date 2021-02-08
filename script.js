@@ -22,6 +22,7 @@ let ret;
 let filter = "alle";
 
 function start() {
+    document.querySelector("#burger").addEventListener("click", toggleMenu)
     const filterknapper = document.querySelectorAll("nav button");
     filterknapper.forEach(knap => knap.addEventListener("click", filterRetter));
 
@@ -93,6 +94,16 @@ function mouseover() {
 
 function mouseout() {
     this.classList.remove("hover");
+}
+
+function toggleMenu() {
+    let navBar = document.querySelector("nav");
+    if (navBar.style.display === "block") {
+        navBar.style.display = "none";
+
+    } else {
+        navBar.style.display = "block";
+    }
 }
 
 //hentData()
