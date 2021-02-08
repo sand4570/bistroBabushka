@@ -4,6 +4,8 @@ const medieurl = "https://babushka-dd8a.restdb.io/media/";
 //constant der indeholder URL til data i restdb
 const url = "https://babushka-dd8a.restdb.io/rest/menu";
 
+let json;
+
 //constant der indeholder API nøglen til data fra restdb
 const options = {
     headers: {
@@ -17,7 +19,7 @@ let h1 = document.querySelector("h1");
 //tjek at DOM er loaded og kør function hentData
 document.addEventListener("DOMContentLoaded", start);
 let ret;
-let filter = "ja";
+let filter = "alle";
 
 function start() {
     const filterknapper = document.querySelectorAll("nav button");
@@ -32,7 +34,7 @@ function filterRetter() {
     this.classList.add("valgt");
 
     visRetter();
-    header.textContent = this.textContent;
+    h1.textContent = this.textContent;
 }
 
 //Funktion der henter data fra json fil
@@ -42,15 +44,15 @@ async function hentData() {
     const resspons = await fetch(url, options);
 
     //Constant der indeholder den data vi lige har hentet
-    const json = await resspons.json();
+    json = await resspons.json();
 
     //kør function vis med constanten json;
-    visRetter(json);
+    visRetter();
 }
 
 
 
-function visRetter(json) {
+function visRetter() {
     console.log(json);
 
     //variabel data container til loop view
@@ -64,7 +66,7 @@ function visRetter(json) {
     json.forEach(ret => {
 
         if (filter == ret.kategori || filter == "alle") {
-            let klon = temp.cloneNode(true).content;
+            let klon = temp.cloneNode(true);
             klon.querySelector("img").src = medieurl + ret.billede[0];
             klon.querySelector("h2").textContent = ret.navn;
             klon.querySelector("#info").textContent = ret.kortbeskrivelse;
