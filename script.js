@@ -1,9 +1,3 @@
-//variabel data container til loop view
-let container = document.querySelector(".loop-container");
-
-//variabel for template til loop vew
-let temp = document.querySelector("template");
-
 //constant der indeholder URL til billederne i restdb
 const medieurl = "https://babushka-dd8a.restdb.io/media/";
 
@@ -17,8 +11,29 @@ const options = {
     }
 };
 
+let h1 = document.querySelector("h1");
+
+
 //tjek at DOM er loaded og kør function hentData
-document.addEventListener("DOMContentLoaded", hentData);
+document.addEventListener("DOMContentLoaded", start);
+let ret;
+let filter = "ja";
+
+function start() {
+    const filterknapper = document.querySelectorAll("nav button");
+    filterknapper.forEach(knap => knap.addEventListener("click", filterRetter));
+
+    hentData();
+}
+
+function filterRetter() {
+    filter = this.dataset.kategori;
+    document.querySelector(".valgt").classList.remove("valgt");
+    this.classList.add("valgt");
+
+    visRetter();
+    header.textContent = this.textContent;
+}
 
 //Funktion der henter data fra json fil
 async function hentData() {
@@ -30,36 +45,45 @@ async function hentData() {
     const json = await resspons.json();
 
     //kør function vis med constanten json;
-    vis(json);
+    visRetter(json);
 }
 
-function vis(json) {
+
+
+function visRetter(json) {
     console.log(json);
+
+    //variabel data container til loop view
+    const container = document.querySelector(".loop-container");
+
+    //variabel for template til loop vew
+    const temp = document.querySelector("template").content;
+    container.textContent = "";
 
     //dataen for hvert element i json hentes og places i template
     json.forEach(ret => {
-        let klon = temp.cloneNode(true).content;
-        klon.querySelector("img").src = medieurl + ret.billede[0];
-        klon.querySelector("h2").textContent = ret.navn;
-        klon.querySelector("#info").textContent = ret.kortbeskrivelse;
-        klon.querySelector("#pris").innerHTML = `${ret.pris} ,-`;
 
-        container.appendChild(klon);
+        if (filter == ret.kategori || filter == "alle") {
+            let klon = temp.cloneNode(true).content;
+            klon.querySelector("img").src = medieurl + ret.billede[0];
+            klon.querySelector("h2").textContent = ret.navn;
+            klon.querySelector("#info").textContent = ret.kortbeskrivelse;
+            klon.querySelector("#pris").innerHTML = `${ret.pris} ,-`;
+            container.appendChild(klon);
+        }
+
     })
     //kør funktionen start
-    start()
-}
-
-function start() {
-    console.log("start");
 
     let article1 = document.querySelectorAll("article");
     article1.forEach(article => {
         article.addEventListener("mouseover", mouseover);
         article.addEventListener("mouseout", mouseout);
-    })
+    });
+
 
 }
+
 
 function mouseover() {
     this.classList.add("hover");
@@ -69,4 +93,4 @@ function mouseout() {
     this.classList.remove("hover");
 }
 
-hentData()
+//hentData()

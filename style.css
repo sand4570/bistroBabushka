@@ -20,25 +20,19 @@ p {
 
 
 
-ul {
-    list-style-type: none;
+nav {
     margin: 0;
-    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
     overflow: hidden;
     background-color: #197C67;
-    position: -webkit-sticky;
-    /* Safari */
-    position: sticky;
     top: 0;
 
 }
 
-li {
-    float: left;
-}
-
-li a {
-    display: block;
+button {
+    background-color: #197C67;
     color: white;
     text-align: center;
     padding: 14px 16px;
