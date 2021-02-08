@@ -38,6 +38,7 @@ nav {
 .btn-group button {
     background-color: #197C67;
     border: none;
+    outline: none;
     color: white;
     text-align: center;
     padding: 14px 16px;
