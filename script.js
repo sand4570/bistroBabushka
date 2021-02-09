@@ -72,11 +72,14 @@ function visRetter() {
             klon.querySelector("h2").textContent = ret.navn;
             klon.querySelector("#info").textContent = ret.kortbeskrivelse;
             klon.querySelector("#pris").innerHTML = `${ret.pris} ,-`;
+
+            //Sæt eventlistenner så der kan skiftes til single view
+            klon.querySelector(".mad").addEventListener("click", () => visSingle(ret));
+
             container.appendChild(klon);
         }
 
     })
-    //kør funktionen start
 
     let article1 = document.querySelectorAll("article");
     article1.forEach(article => {
@@ -86,6 +89,10 @@ function visRetter() {
 
 
 }
+
+function visSingle(hvad) {
+            location.href = `single.html?id=${hvad._id}`;
+        }
 
 
 function mouseover() {
