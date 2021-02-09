@@ -15,11 +15,14 @@ h1 {
     margin: 10px;
 }
 
+single
+
 h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     color: #197C67;
 }
+
 
 p {
     font-family: "Times New Roman", Times, serif;
@@ -64,6 +67,18 @@ nav {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+button {
+    background-color: #197C67;
+    border: none;
+    outline: none;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .btn-group .valgt {
     background-color: #126453;
 }
@@ -72,9 +87,19 @@ nav {
     background-color: #126453;
 }
 
+button:hover {
+    background-color: #126453;
+}
 
 #pris {
     color: #C1272D;
+}
+
+#pris1 {
+    color: #C1272D;
+    text-align: end;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 #splash {
