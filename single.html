@@ -16,14 +16,14 @@
         <img id="splash" src="billeder/header_baBushka-1.svg" alt="Placeholder">
 
         <nav>
-        <button id="tilbage">Tilbage</button>
+            <button id="tilbage">Tilbage</button>
         </nav>
 
     </header>
     <main>
 
         <article id="articleSingle" class="mad">
-            <h1 id="h1Single" ></h1>
+            <h1 id="h1Single"></h1>
             <img id="billede" src="" alt="">
             <h2></h2>
             <p id="info"></p>
@@ -32,11 +32,14 @@
     </main>
 
     <script>
+        //Gemmer værdien for url'en så data senere kan hentes
         const urlParams = new URLSearchParams(window.location.search);
 
+        //Identifiserer id fra url'en
         const id = urlParams.get("id");
         console.log("Id", id);
 
+        //Medie url og api key
         const medieurl = "https://babushka-dd8a.restdb.io/media/";
         const myHeaders = {
 
@@ -47,6 +50,7 @@
 
         document.addEventListener("DOMContentLoaded", hentData)
 
+        //Henter data for den valgte ret ved at indsætte id
         async function hentData() {
             const resspons = await fetch(`https://babushka-dd8a.restdb.io/rest/menu/${id}`, {
                 headers: myHeaders
@@ -59,6 +63,7 @@
             visRetter();
         }
 
+        //tilføjer data til html elementerne
         function visRetter() {
             document.querySelector("#billede").src = medieurl + json.billede[0];
             document.querySelector("h1").textContent = json.navn;
@@ -66,9 +71,11 @@
             document.querySelector("#info").textContent = json.langbeskrivelse;
             document.querySelector("#pris1").innerHTML = `${json.pris} ,-`;
 
+
             document.querySelector("#tilbage").addEventListener("click", tilbageTilLoop);
         }
 
+        //function der for tilbage knappen til at gå tilbage i historikken
         function tilbageTilLoop() {
             console.log("back");
             history.back();
