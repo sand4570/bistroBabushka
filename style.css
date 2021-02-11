@@ -15,9 +15,7 @@ h1 {
     margin: 10px;
 }
 
-single
-
-h2 {
+single h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     color: #197C67;
@@ -28,6 +26,14 @@ p {
     font-family: "Times New Roman", Times, serif;
     font-weight: normal;
 }
+
+#billede {
+    border-radius: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #burgerDiv {
     background-color: #126453;
     width: 100%;
@@ -67,7 +73,7 @@ nav {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-button {
+#tilbage {
     background-color: #197C67;
     border: none;
     outline: none;
@@ -87,7 +93,7 @@ button {
     background-color: #126453;
 }
 
-button:hover {
+#tilbage:hover {
     background-color: #126453;
 }
 
@@ -125,16 +131,24 @@ article {
     border-radius: 5%;
 }
 
+#articleSingle {
+    background-color: #F6F6F6;
+    border-radius: 0%;
+    max-width: 845px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .hover {
     background-color: #DADADA;
 }
 
 @media only screen and (max-width: 600px) {
     #burger {
-    display: block;
-}
+        display: block;
+    }
 
-    nav {
+    .btn-group {
         display: none;
         margin: 0;
         overflow: hidden;
@@ -155,6 +169,8 @@ article {
     .btn-group button:hover {
         background-color: #126453;
     }
+
+    #h1Single {
+        font-size: 2rem;
+    }
 }
-
-
