@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", start);
 let ret;
 let filter = "alle";
 
+
+//Tilføj eventlisteners til de forskellige knapper i menuen
 function start() {
     document.querySelector("#burger").addEventListener("click", toggleMenu)
     const filterknapper = document.querySelectorAll("nav button");
@@ -29,11 +31,13 @@ function start() {
     hentData();
 }
 
+//funktion der filtrerer det viste indhold efter kategori
 function filterRetter() {
     filter = this.dataset.kategori;
     document.querySelector(".valgt").classList.remove("valgt");
     this.classList.add("valgt");
 
+    //Skift h1 til samme tekst som den valgte kategori
     visRetter();
     h1.textContent = this.textContent;
 }
@@ -81,6 +85,7 @@ function visRetter() {
 
     })
 
+    //tilføj eventlistener til alle articles
     let article1 = document.querySelectorAll("article");
     article1.forEach(article => {
         article.addEventListener("mouseover", mouseover);
@@ -90,19 +95,22 @@ function visRetter() {
 
 }
 
+//function der sender en videre til single view for den valgte ret
 function visSingle(hvad) {
             location.href = `single.html?id=${hvad._id}`;
         }
 
-
+//add class hover ved mouseover
 function mouseover() {
     this.classList.add("hover");
 }
 
+//fjern klassen hover ved mouseout
 function mouseout() {
     this.classList.remove("hover");
 }
 
+//Function der skifter mellem alm menu og kollapselig menu
 function toggleMenu() {
     let navBar = document.querySelector("nav");
     if (navBar.style.display === "") {
@@ -112,5 +120,3 @@ function toggleMenu() {
         navBar.style.display = "";
     }
 }
-
-//hentData()
