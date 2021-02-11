@@ -1,3 +1,5 @@
+/** GENERELT **/
+
 * {
     box-sizing: border-box;
 }
@@ -15,24 +17,44 @@ h1 {
     margin: 10px;
 }
 
-single h2 {
-    font-family: Arial, Helvetica, sans-serif;
+h2 {
+   font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     color: #197C67;
 }
-
 
 p {
     font-family: "Times New Roman", Times, serif;
     font-weight: normal;
 }
 
-#billede {
-    border-radius: 10%;
+nav {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0;
+    overflow: hidden;
+    background-color: #197C67;
+    top: 0;
+
 }
+
+#splash {
+    border-radius: 0%;
+}
+
+section {
+    max-width: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,
+            minmax(240px, 1fr));
+    grid-gap: 15px;
+}
+
+/** GENNERELT SLUT **/
+
+/** LOOP VIEW **/
 
 #burgerDiv {
     background-color: #126453;
@@ -52,28 +74,7 @@ p {
     margin-left: 85%;
 }
 
-nav {
-    display: block;
-    margin: 0;
-    overflow: hidden;
-    background-color: #197C67;
-    top: 0;
-
-}
-
 .btn-group button {
-    background-color: #197C67;
-    border: none;
-    outline: none;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    display: inline-block;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#tilbage {
     background-color: #197C67;
     border: none;
     outline: none;
@@ -93,34 +94,8 @@ nav {
     background-color: #126453;
 }
 
-#tilbage:hover {
-    background-color: #126453;
-}
-
-#pris {
-    color: #C1272D;
-}
-
-#pris1 {
-    color: #C1272D;
-    text-align: end;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-#splash {
-    border-radius: 0%;
-}
-
-section {
-    max-width: 100%;
-    margin-left: 10%;
-    margin-right: 10%;
-    padding: 10px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill,
-            minmax(240px, 1fr));
-    grid-gap: 15px;
+.hover {
+    background-color: #DADADA;
 }
 
 article {
@@ -131,6 +106,30 @@ article {
     border-radius: 5%;
 }
 
+#pris {
+    color: #C1272D;
+}
+
+/** LOOP VIEW SLUT **/
+
+/** SINGLE VIEW **/
+
+#tilbage {
+    background-color: #197C67;
+    border: none;
+    outline: none;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#tilbage:hover {
+    background-color: #126453;
+}
+
 #articleSingle {
     background-color: #F6F6F6;
     border-radius: 0%;
@@ -139,9 +138,23 @@ article {
     margin-right: auto;
 }
 
-.hover {
-    background-color: #DADADA;
+#pris1 {
+    color: #C1272D;
+    text-align: end;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
+
+#billede {
+    border-radius: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/** SINGLE VIEW SLUT **/
+
+/** MEDIA QUERY **/
 
 @media only screen and (max-width: 600px) {
     #burger {
@@ -174,3 +187,5 @@ article {
         font-size: 2rem;
     }
 }
+
+/** MEDIA QUERY SLUT **/
